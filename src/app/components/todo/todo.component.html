@@ -1,0 +1,35 @@
+<div class="todo" [ngClass]="todo.completed ? 'done' : ''">
+  <!-- Checkbox -->
+  <mat-checkbox 
+    *ngIf="!editMode" 
+    [(ngModel)]="checked" 
+    (change)="onStatusChange()"> 
+    {{ todo?.title }}  
+  </mat-checkbox>
+  
+  <!-- Input -->
+  <input 
+    matInput 
+    class="form-control"
+    *ngIf="editMode" 
+    [value]="todo?.title" 
+    (input)="onTitleEdit($event.target.value)">
+  
+  <!-- Edit/Save button -->
+  <button 
+    mat-raised-button
+    *ngIf="!todo.completed" 
+    (click)="editMode = !editMode" 
+    [color]="editMode ? 'primary' : 'default'" 
+    [innerHtml]="editMode ? 'Save' : 'Edit'">
+  </button>
+
+  <!-- Delete button -->
+  <button 
+    mat-raised-button
+    *ngIf="todo.completed" 
+    (click)="deleteTodo()" 
+    color="warn">
+    <i class="material-icons">delete</i>
+  </button>
+</div>

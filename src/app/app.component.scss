@@ -1,0 +1,22 @@
+h1, h2 {
+    color: #519eb2;
+}
+
+.todo{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+
+    &.done {
+        .mat-checkbox{
+            text-decoration: line-through;
+        }
+    }
+}
+
+.form-control{
+    border-radius: 0;
+    width: auto;
+}

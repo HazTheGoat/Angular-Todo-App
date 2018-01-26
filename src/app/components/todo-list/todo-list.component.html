@@ -1,0 +1,34 @@
+<div class="todo-list-container">
+  <!-- Add a todo -->
+  <h1>Add a new todo</h1>
+  <p>What do we need to do?</p>
+  <div class="todo mb-5">
+    <!-- Input with a local variable  "newTodoText" -->
+    <input matInput class="form-control" #newTodoText>
+    <!-- Edit/Save button -->
+    <button mat-raised-button color="primary" (click)="addTodo(newTodoText)">
+        <i class="material-icons">add</i> Add todo
+    </button> 
+  </div>
+  
+  <!-- The not done pile -->
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>Todo ({{undoneTodosCount}})</h1>
+  </div>
+  <p *ngIf="_todoService.getTodos().length > 0">Click on a todo to mark it as done</p>
+
+  <div class="todo-list">
+    <div *ngFor="let todo of _todoService.getTodos()">
+      <app-todo *ngIf="!todo.completed" [todo]="todo" (statusChangedEvent)="handleStatusChanged($event)"></app-todo>
+    </div>
+  </div>
+
+  <!-- The done pile -->
+  <h1>Done({{doneCount}})</h1>
+  <p>Click on a todo to mark it as undone</p>
+  <div class="todo-list">
+    <div *ngFor="let todo of _todoService.getTodos(); let i = index;">
+      <app-todo *ngIf="todo.completed" [todo]="todo" (statusChangedEvent)="handleStatusChanged($event)" (deleteTodoEvent)="deleteTodo(i)"></app-todo>
+    </div>
+  </div>
+</div>
