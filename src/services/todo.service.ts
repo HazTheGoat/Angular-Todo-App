@@ -1,6 +1,5 @@
 import { Todo } from './../models/todo.model';
 import { Injectable } from '@angular/core';
-import { isEqual } from 'lodash';
 
 @Injectable()
 export class TodoService {

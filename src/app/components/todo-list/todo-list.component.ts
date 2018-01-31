@@ -12,7 +12,7 @@ export class TodoListComponent implements OnInit {
   undoneTodosCount: number = 0;
   doneCount: number = 0;
 
-  constructor(private _todoService: TodoService) { }
+  constructor(public _todoService: TodoService) { }
 
   // Angular lifecycle hook
   ngOnInit(){

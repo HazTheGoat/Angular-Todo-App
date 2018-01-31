@@ -8,15 +8,17 @@ h1, h2 {
     padding: 10px 0;
     margin-bottom: 10px;
     border-bottom: 1px solid rgba(0,0,0,.1);
+}
 
-    &.done {
-        .mat-checkbox{
-            text-decoration: line-through;
-        }
-    }
+.todo .done .mat-checkbox{
+    text-decoration: line-through;
 }
 
 .form-control{
     border-radius: 0;
     width: auto;
+}
+
+.todo-list-container .todo-list{
+    margin-bottom: 60px;
 }
